@@ -9,9 +9,18 @@
         }
         setcookie("Language", $Language);
     }
-    if(file_exists("data/php/lang/$Language.php")){
+
+    if(file_exists("data/php/lang/$Language.php") && $Language != ""){
         require_once("data/php/lang/$Language.php");
     }else{
-        die(print_r("<h1>Language System PHP</h1><p>ERRO: não foi possível encontrar o arquivo de idioma para ($Language), tenta limpar os Cookies para resolver o problema.</p><hr/>Versão 1.0, Criado por: Trevias Xk", true ));
+        setcookie("Language", "");
+        die(print_r("<h1>Language System PHP</h1><p>ERRO: não foi possível encontrar o arquivo de idioma para ($Language), vamos tentar te direcionar para o idioma padrão, por favor atuaize a página.</p><hr/>Versão 1.0, Criado por: Trevias Xk", true ));
+    }
+
+    function ChangeLanguage($Language){
+        if(isset($_COOKIE["Language"]) && $_COOKIE["Language"] != $Language){
+            setcookie("Language", $Language);
+            header("location: /");
+        }
     }
 ?>
