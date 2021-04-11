@@ -14,7 +14,7 @@
         require_once("data/php/lang/$Language.php");
     }else{
         setcookie("Language", "");
-        die(print_r("<h1>Language System PHP</h1><p>ERRO: não foi possível encontrar o arquivo de idioma para ($Language), vamos tentar te direcionar para o idioma padrão, por favor atuaize a página.</p><hr/>Versão 1.0, Criado por: Trevias Xk", true ));
+        die(print_r("<h1>Language System PHP</h1><p>ERRO: não foi possível encontrar o arquivo de idioma para ($Language), vamos tentar te direcionar para o idioma padrão, por favor atualize a página.</p><hr/><i>Versão 1.0, Criado por: Trevias Xk</i>", true ));
     }
 
     function ChangeLanguage($Language){
